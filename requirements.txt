@@ -1,6 +1,6 @@
 streamlit_lottie==0.0.2
 streamlit==1.32.0
 requests>=2.27,<3.0
-tensorflow==2.11.0  
-keras==2.11.0  
-numpy==1.23.0  
+tensorflow  
+keras  
+numpy
