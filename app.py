@@ -10,7 +10,13 @@ with open('Model/tokenizer.pkl', 'rb') as f:
     tokenizer = pickle.load(f)
 
 max_length = 30  # Set this to your maximum sequence length
+# Use local CSS
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+
+local_css("style/style.css")
 def predict_sentiment(paragraph):
     highlighted_text = []
     
@@ -58,3 +64,22 @@ if st.button("Check"):
         st.markdown(highlighted_output, unsafe_allow_html=True)
     else:
         st.warning("Please enter a paragraph to check.")
+
+
+
+with st.container():
+    st.write("---")
+    st.header("Error Occurred!")
+    st.write("If you encountered an issue or any wrong predictions, please let us know:")
+    
+    # Contact form HTML
+    contact_form = """
+    <form action="https://formsubmit.co/grinstagram123@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" (optional)>
+        <textarea name="message" placeholder="Your message here" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    """
+    st.markdown(contact_form, unsafe_allow_html=True)
